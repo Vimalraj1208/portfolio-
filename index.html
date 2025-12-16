@@ -297,7 +297,7 @@ https://www.tooplate.com/view/2115-marvel
             <div class="contact-form">
               <h2 class="mb-4">Interested to work together? Let's talk</h2>
 
-     <form id="contact-form">
+    <form id="contact-form">
   <div class="row">
     <div class="col-lg-6 col-12">
       <input type="text" class="form-control" name="name" placeholder="Your Name" required>
@@ -319,8 +319,6 @@ https://www.tooplate.com/view/2115-marvel
   </div>
 </form>
 
-        </div>
-      </div>
     </section>
 
     <!-- FOOTER -->
@@ -348,25 +346,26 @@ https://www.tooplate.com/view/2115-marvel
 
 <script>
 (function(){
-  emailjs.init("4Zzdw1hYcNJU-mM1z"); // 👈 EmailJS public key
+  emailjs.init("4Zzdw1hYcNJU-mM1z"); // ✅ YOUR PUBLIC KEY
 })();
 
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // ⭐ THIS FIXES LAYOUT ISSUE
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
 
   emailjs.sendForm(
-    "service_fa906la",      // service ID
-    "template_p6025q4",     // template ID
+    "service_fa906la",     // ✅ your Service ID
+    "template_p6025q4",    // ✅ your Template ID
     this
-  ).then(function() {
+  ).then(() => {
       alert("✅ Message sent successfully!");
-      document.getElementById("contact-form").reset();
-  }, function(error) {
+      this.reset();
+  }).catch((error) => {
       alert("❌ Failed to send message");
-      console.log(error);
+      console.error("EmailJS Error:", error);
   });
 });
 </script>
+
 
   </body>
 </html>
