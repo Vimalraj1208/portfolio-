@@ -568,3 +568,11 @@ b, strong {
     vertical-align: top;
   }
 }
+.social-links i {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.social-links a:hover i {
+  color: #ffc200;
+}
