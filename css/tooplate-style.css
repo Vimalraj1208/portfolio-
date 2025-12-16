@@ -601,3 +601,39 @@ b, strong {
   color: #474559;
 }
 }
+/* CONTACT LEFT BOX FIX */
+.contact-info {
+  background: #474559;
+  border-radius: 8px;
+  margin-top: -8px;
+}
+
+.contact-info h3 {
+  color: #ffffff;
+}
+
+.contact-info p,
+.contact-info a {
+  color: #f7f3f3;
+  font-size: 16px;
+}
+
+/* SOCIAL ICONS – FINAL FIX */
+.social-links {
+  display: flex;
+  gap: 18px;
+}
+
+.social-links li {
+  list-style: none;
+}
+
+.social-links i {
+  font-size: 26px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.social-links a:hover i {
+  color: #ffc200;
+}
