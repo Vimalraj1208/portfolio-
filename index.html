@@ -334,37 +334,53 @@ https://www.tooplate.com/view/2115-marvel
           </div>
      </footer>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
+   <!-- EmailJS MUST load BEFORE custom JS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-(function(){
-  emailjs.init("4Zzdw1hYcNJU-mM1z"); // ✅ YOUR PUBLIC KEY
-})();
+  document.addEventListener("DOMContentLoaded", function () {
 
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault();
+    // INIT EMAILJS
+    emailjs.init("4Zzdw1hYcNJU-mM1z"); // ✅ Public Key
 
-  emailjs.sendForm(
-    "service_fa906la",     // ✅ your Service ID
-    "template_p6025q4",    // ✅ your Template ID
-    this
-  ).then(() => {
-      alert("✅ Message sent successfully!");
-      this.reset();
-  }).catch((error) => {
-      alert("❌ Failed to send message");
-      console.error("EmailJS Error:", error);
+    const form = document.getElementById("contact-form");
+
+    if (!form) {
+      console.error("❌ contact-form not found");
+      return;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_fa906la",     // ✅ Service ID
+        "template_p6025q4",    // ✅ Template ID
+        this
+      )
+      .then(function () {
+        alert("✅ Message sent successfully!");
+        form.reset();
+      })
+      .catch(function (error) {
+        alert("❌ Failed to send message");
+        console.error("EmailJS Error:", error);
+      });
+    });
+
   });
-});
 </script>
+
+<!-- THEN load your JS files -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/jQuery.headroom.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/custom.js"></script>
+
 
 
   </body>
