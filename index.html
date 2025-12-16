@@ -297,21 +297,27 @@ https://www.tooplate.com/view/2115-marvel
             <div class="contact-form">
               <h2 class="mb-4">Interested to work together? Let's talk</h2>
 
-           <form id="contact-form">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Message" required></textarea>
-  <input type="submit" value="Send Button">
+     <form id="contact-form">
+  <div class="row">
+    <div class="col-lg-6 col-12">
+      <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+    </div>
+
+    <div class="col-lg-6 col-12">
+      <input type="email" class="form-control" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="col-12">
+      <textarea name="message" rows="6" class="form-control" placeholder="Message" required></textarea>
+    </div>
+
+    <div class="ml-lg-auto col-lg-5 col-12">
+      <button type="submit" class="form-control submit-btn">
+        Send Button
+      </button>
+    </div>
+  </div>
 </form>
-
-
-                  <div class="ml-lg-auto col-lg-5 col-12">
-                    <input type="submit" class="form-control submit-btn" value="Send Button">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
 
         </div>
       </div>
@@ -338,6 +344,29 @@ https://www.tooplate.com/view/2115-marvel
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("4Zzdw1hYcNJU-mM1z"); // 👈 EmailJS public key
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // ⭐ THIS FIXES LAYOUT ISSUE
+
+  emailjs.sendForm(
+    "service_fa906la",      // service ID
+    "template_p6025q4",     // template ID
+    this
+  ).then(function() {
+      alert("✅ Message sent successfully!");
+      document.getElementById("contact-form").reset();
+  }, function(error) {
+      alert("❌ Failed to send message");
+      console.log(error);
+  });
+});
+</script>
 
   </body>
 </html>
