@@ -559,21 +559,45 @@ b, strong {
     display: block;
   }
 
-  .contact-info {
-    flex-direction: column;
-  }
+ .contact-info {
+  background: #474559;
+  border-radius: 0 0 6px 6px;
+}
 
-  .social-links li {
-    display: inline-block;
-    vertical-align: top;
-  }
+.contact-info p,
+.contact-info a {
+  color: #ffffff;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links li {
+  list-style: none;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-links i {
-  font-size: 24px;
-  color: #ffffff;   /* white */
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.social-links a:hover {
+  background: #ffc200;
 }
 
 .social-links a:hover i {
-  color: #ffc200;   /* yellow hover */
+  color: #474559;
+}
 }
